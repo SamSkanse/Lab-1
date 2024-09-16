@@ -1,0 +1,108 @@
+### App Idea: **Movie & TV Show Explorer**
+
+#### Overview:
+The app will allow users to explore a curated list of movies and TV shows. Users will be able to browse through the titles, check details (rating, genre, release year, and a short description), and filter by different criteria (e.g., genre, release date). There will be interactive elements to navigate between views, modify settings, and engage with the content.
+
+This project will satisfy all the technical requirements and utilize both **Swift** and **Objective-C** by mixing the two languages in different components of the app.
+
+### App Structure:
+
+#### Main Components:
+1. **Main TableViewController (List of Movies & Shows)**:
+   - Displays a dynamic list of movies and TV shows using three different types of prototype cells:
+     - **Basic Cell**: Displays just the movie/show title and a small icon (genre or year).
+     - **Detailed Cell**: Displays title, year, genre, and rating.
+     - **Image Cell**: Displays title, large cover image, and a brief description.
+   - Data is dynamically loaded from an internal array or from an API (e.g., a movie database).
+
+2. **Detail View Controller**:
+   - Displays detailed information about a movie/show when a user taps a row in the TableView.
+   - The app passes the relevant movie/show data (title, genre, year, description, etc.) from the `TableViewController` to the `DetailViewController`.
+   - Contains an **ImageView** for the cover image and labels for the details.
+
+3. **Settings View (Picker, Sliders, and Stepper)**:
+   - Allows users to filter and customize their browsing experience.
+   - A **PickerView** allows users to filter by genre.
+   - **Sliders** adjust the year range (e.g., movies from 2000 to 2020).
+   - **Stepper** allows users to set the number of results to display.
+   - **Switch** toggles sorting by rating or year.
+
+4. **Timer & Dynamic Update View**:
+   - A timer view that automatically fetches new movie/show data every 30 seconds, simulating a live data feed (e.g., "New Arrivals").
+   - The timer will trigger UI updates that refresh part of the screen (e.g., new titles being added to the list).
+
+5. **ScrollView**:
+   - A scrollable view will be used on the **Detail View** to show long descriptions of movies/shows, which users can scroll through.
+   - **Zoomable content** for images (e.g., zoom into a movie poster).
+
+6. **Segmented Control**:
+   - A segmented control at the top of the list will allow users to toggle between viewing just movies, just TV shows, or both.
+
+7. **Collection View Controller**:
+   - Displays the same movie/show data as the `TableViewController` but in a more visually appealing grid format, allowing users to view covers of movies/shows.
+
+#### Design Elements:
+
+1. **Automatic Layout**:
+   - The app will make use of constraints to ensure the layout adjusts correctly between portrait and landscape modes.
+   
+2. **Buttons**:
+   - The main page will have a button for refreshing the content.
+   - A "More Info" button on the movie/show details view for expanding extra content.
+
+3. **Sliders**:
+   - Located in the settings view for adjusting the year range filter.
+   
+4. **Labels**:
+   - Used throughout the app for showing titles, ratings, genres, and other text information.
+
+5. **Stepper**:
+   - Adjusts the number of results shown in the table view.
+
+6. **Switch**:
+   - Toggles sorting by year or rating.
+
+7. **Picker**:
+   - Allows filtering by genre in the settings view.
+   - Implements the picker delegate methods.
+
+8. **Segmented Control**:
+   - Switches between "Movies", "TV Shows", and "Both" categories.
+
+9. **Timer**:
+   - Refreshes the list with new movie/show data every 30 seconds, providing a dynamic feel.
+
+10. **ScrollView**:
+    - In the detail view to enable scrolling through long descriptions.
+
+11. **Image View**:
+    - Displays movie/show posters.
+
+12. **Navigation Controller**:
+    - Manages hierarchical navigation between the list of movies/shows, the settings page, and the detailed view page.
+
+13. **Collection View Controller**:
+    - Displays movies/shows in a grid format for a more visual exploration.
+
+14. **Table View Controller**:
+    - Implements dynamic cells for displaying different movie/show information.
+
+#### Languages & Project Architecture:
+- **Swift** will be used for most of the UI and the dynamic loading of data.
+- **Objective-C** will be used for managing a core part of the data model and possibly the timer functionality, ensuring proper memory management with lazy loading and manual memory control if necessary.
+- **Model-View-Controller (MVC)** design pattern will be strictly followed, where:
+  - The **Model** handles the movie/show data.
+  - The **View** represents the user interface components such as TableView, CollectionView, ScrollView, etc.
+  - The **Controller** manages the interaction between the data and the view.
+
+#### Example of Language Division:
+- **Swift**:
+   - UI components such as TableView, CollectionView, ScrollView, and DetailView.
+   - Event handling (Button actions, Segmented Control, etc.).
+   
+- **Objective-C**:
+   - Movie data model management.
+   - Timer-based updates (could use Objective-C for the timer to handle some low-level functionality efficiently).
+   - Lazy instantiation of heavy data elements (like movie posters).
+
+This project idea will give you the opportunity to have fun while managing dynamic information about movies and shows, while meeting all the technical requirements.
